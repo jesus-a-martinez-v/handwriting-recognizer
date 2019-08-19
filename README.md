@@ -42,4 +42,5 @@ I think that number is: 0
 ```
 
 And an annotated photo, like this:
+
 ![Annotated](https://github.com/jesus-a-martinez-v/handwriting-recognizer/blob/master/assets/annotated.png)
