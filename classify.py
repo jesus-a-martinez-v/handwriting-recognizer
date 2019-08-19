@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import argparse
 
 import cv2
@@ -9,10 +7,10 @@ from sklearn.externals import joblib
 import dataset
 from hog import HOG
 
-argparser = argparse.ArgumentParser()
-argparser.add_argument('-m', '--model', required=True, help='Path to where the model will be stored.')
-argparser.add_argument('-i', '--image', required=True, help='Path to the image file.')
-arguments = vars(argparser.parse_args())
+argument_parser = argparse.ArgumentParser()
+argument_parser.add_argument('-m', '--model', required=True, help='Path to where the model is stored.')
+argument_parser.add_argument('-i', '--image', required=True, help='Path to the image file.')
+arguments = vars(argument_parser.parse_args())
 
 model = joblib.load(arguments['model'])
 
@@ -46,7 +44,7 @@ for (c, _) in contours:
         digit = model.predict([histogram])[0]
         print('I think that number is: {}'.format(digit))
 
-        cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 1)
-        cv2.putText(image, str(digit), (x - 10, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 255, 0), 2)
+        cv2.rectangle(image, (x, y), (x + w, y + h), (128, 0, 128), 1)
+        cv2.putText(image, str(digit), (x - 10, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (128, 0, 128), 2)
         cv2.imshow('image', image)
         cv2.waitKey(0)

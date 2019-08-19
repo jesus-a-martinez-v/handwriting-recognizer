@@ -10,7 +10,7 @@ def load_digits(dataset_path):
     target = data[:, 0]
     data = data[:, 1:].reshape(data.shape[0], 28, 28)
 
-    return (data, target)
+    return data, target
 
 
 def deskew(image, width):
